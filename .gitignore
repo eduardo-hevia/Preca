@@ -1,0 +1,22 @@
+# Entorno — NUNCA commitear
+.env
+.env.production
+.env.local
+.env.*.local
+
+# Dependencias
+node_modules/
+
+# Build
+dist/
+
+# Testing
+coverage/
+tests/e2e/screenshots/
+tests/e2e/videos/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/settings.json
+.idea/
