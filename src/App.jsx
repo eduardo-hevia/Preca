@@ -15,9 +15,9 @@ function App() {
   // Mientras MSAL inicializa
   if (isLoading) {
     return (
-      <div style={{ minHeight:'100vh', background:'var(--navy)', display:'flex', alignItems:'center', justifyContent:'center', fontFamily:'var(--font)' }}>
-        <div style={{ textAlign:'center', color:'var(--text-dim)' }}>
-          <div style={{ width:32, height:32, border:'3px solid var(--border)', borderTop:'3px solid var(--teal)', borderRadius:'50%', animation:'spin .7s linear infinite', margin:'0 auto 14px' }}/>
+      <div style={{ minHeight:'100vh', background:'var(--gray-50)', display:'flex', alignItems:'center', justifyContent:'center', fontFamily:'var(--font)' }}>
+        <div style={{ textAlign:'center', color:'var(--text-muted)' }}>
+          <div style={{ width:32, height:32, border:'3px solid var(--gray-200)', borderTop:'3px solid var(--teal)', borderRadius:'50%', animation:'spin .7s linear infinite', margin:'0 auto 14px' }}/>
           <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
           <p style={{ fontSize:'.74rem' }}>Iniciando sesión…</p>
         </div>

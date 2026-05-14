@@ -109,22 +109,40 @@ export const CasosEspecialesPage = () => {
         </div>
 
         <div className="card">
-          <div className="card__header">
-            <div className="section-title"><Users size={15} />Registros</div>
-            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-              <div className="search-box" style={{ maxWidth: 200 }}>
-                <input className="search-box__input" placeholder="Buscar…" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+          <div className="card__header" style={{ gap: '16px' }}>
+            <div className="section-title" style={{ minWidth: '120px' }}>
+              <Users size={15} /> Registros
+            </div>
+            
+            <div className="toolbar-wrap" style={{ flex: 1, justifyContent: 'flex-end' }}>
+              <div className="search-box" style={{ flex: '1 1 180px', maxWidth: '300px' }}>
+                <input 
+                  className="search-box__input" 
+                  placeholder="Buscar…" 
+                  value={searchQuery} 
+                  onChange={(e) => setSearchQuery(e.target.value)} 
+                />
               </div>
-              <Select value={filterEstado} onChange={(e) => setFilterEstado(e.target.value)} style={{ fontSize: 12 }}>
+              <Select 
+                value={filterEstado} 
+                onChange={(e) => setFilterEstado(e.target.value)} 
+                style={{ flex: '1 1 150px', maxWidth: '220px' }}
+              >
                 <option value="">Todos los estados</option>
                 {['Denegado','Revocado','Fallecido','Limitación Participación Asamblea','Acciones Adquiridas Anómalamente'].map((e) => <option key={e}>{e}</option>)}
               </Select>
-              <Select value={filterTipo} onChange={(e) => setFilterTipo(e.target.value)} style={{ fontSize: 12 }}>
+              <Select 
+                value={filterTipo} 
+                onChange={(e) => setFilterTipo(e.target.value)} 
+                style={{ flex: '1 1 120px', maxWidth: '160px' }}
+              >
                 <option value="">DPI y Cédula</option>
                 <option>DPI</option>
                 <option>Cédula</option>
               </Select>
-              <Button variant="outline" size="sm">↓ Excel</Button>
+              <Button variant="outline" size="md" style={{ whiteSpace: 'nowrap', flexShrink: 0 }}>
+                ↓ Excel
+              </Button>
             </div>
           </div>
 

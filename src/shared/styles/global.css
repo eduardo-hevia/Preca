@@ -1,68 +1,105 @@
 /**
  * @file shared/styles/global.css
- * @description Tokens de diseño Core Access BT — dark navy/teal.
- * Completamente responsivo: mobile-first, sin solapamientos.
+ * @description Design System "Core Access BT" — Light theme.
+ * Inspirado en la imagen de referencia: fondo blanco/gris, acento teal #00BFA5,
+ * tipografía Outfit + DM Mono, cards limpias con sombra sutil.
  */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap');
 
 /* ── RESET ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 14px; scroll-behavior: smooth; }
+html { font-size: 15px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
 /* ── TOKENS ── */
 :root {
-  --navy:         #0A1628;
-  --navy2:        #111E35;
-  --navy3:        #172440;
-  --navy4:        #1D2D50;
-  --teal:         #00BFA5;
-  --teal-dk:      #00897B;
-  --teal-lt:      #4DD0C4;
-  --teal-pale:    rgba(0,191,165,.09);
-  --gold:         #F9A825;
-  --text:         #C8D8EE;
-  --text-dim:     #7A95BF;
-  --text-bright:  #EEF3FC;
-  --white:        #fff;
-  --green:        #10B981;
-  --red:          #EF4444;
-  --amber:        #F59E0B;
-  --blue:         #3B82F6;
-  --border:       rgba(61,82,128,.35);
-  --border-lt:    rgba(61,82,128,.18);
-  --sh:           0 4px 24px rgba(0,0,0,.22), 0 1px 4px rgba(0,0,0,.12);
-  --sh-lg:        0 12px 40px rgba(0,0,0,.35), 0 2px 8px rgba(0,0,0,.18);
-  --r:            12px;
-  --r-sm:         8px;
-  --r-lg:         18px;
-  --r-xl:         24px;
-  --font:         'DM Sans', system-ui, sans-serif;
-  --mono:         'DM Mono', monospace;
-  --serif:        'DM Serif Display', serif;
-  --sidebar-w:    220px;
-  --topbar-h:     54px;
-  --teal-glow:    0 0 0 3px rgba(0,191,165,.22);
+  /* Colores principales */
+  --teal:          #00BFA5;
+  --teal-dk:       #00897B;
+  --teal-lt:       #4DD0C4;
+  --teal-pale:     #E8F8F5;
+  --teal-pale2:    #F0FAFA;
+
+  /* Grises funcionales */
+  --white:         #FFFFFF;
+  --gray-50:       #F8FAFB;
+  --gray-100:      #F1F5F7;
+  --gray-200:      #E4EAED;
+  --gray-300:      #CBD5DC;
+  --gray-400:      #9BAAB5;
+  --gray-500:      #6B7C8A;
+  --gray-600:      #485969;
+  --gray-700:      #2D3F4D;
+  --gray-800:      #1A2B38;
+  --gray-900:      #0F1E28;
+
+  /* Texto */
+  --text-primary:  #1A2B38;
+  --text-secondary:#485969;
+  --text-muted:    #6B7C8A;
+  --text-disabled: #9BAAB5;
+
+  /* Semánticos */
+  --green:         #10B981;
+  --green-pale:    #D1FAE5;
+  --red:           #EF4444;
+  --red-pale:      #FEE2E2;
+  --amber:         #F59E0B;
+  --amber-pale:    #FEF3C7;
+  --blue:          #3B82F6;
+  --blue-pale:     #DBEAFE;
+  --purple:        #7C3AED;
+  --purple-pale:   #EDE9FE;
+
+  /* Bordes */
+  --border:        #E4EAED;
+  --border-focus:  #00BFA5;
+
+  /* Sombras */
+  --sh-xs:  0 1px 2px rgba(0,0,0,.05);
+  --sh-sm:  0 2px 8px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  --sh-md:  0 4px 16px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.05);
+  --sh-lg:  0 8px 32px rgba(0,0,0,.10), 0 4px 8px rgba(0,0,0,.06);
+  --sh-teal:0 4px 14px rgba(0,191,165,.28);
+
+  /* Radios */
+  --r-xs:  6px;
+  --r-sm:  8px;
+  --r:     12px;
+  --r-lg:  16px;
+  --r-xl:  20px;
+  --r-2xl: 24px;
+
+  /* Layout */
+  --sidebar-w:   240px;
+  --topbar-h:    58px;
+
+  /* Tipografía */
+  --font:  'Outfit', system-ui, sans-serif;
+  --mono:  'DM Mono', monospace;
 }
 
 body {
-  font-family:       var(--font);
-  background:        var(--navy);
-  background-image:  radial-gradient(ellipse 130% 90% at 0% 0%, rgba(0,191,165,.07) 0%, transparent 55%),
-                     radial-gradient(ellipse 70% 100% at 100% 100%, rgba(0,0,0,.25) 0%, transparent 60%);
-  color:             var(--text);
-  min-height:        100vh;
+  font-family:            var(--font);
+  background:             var(--gray-50);
+  color:                  var(--text-primary);
+  min-height:             100vh;
   -webkit-font-smoothing: antialiased;
-  overflow-x:        hidden;
+  overflow-x:             hidden;
 }
 
-::-webkit-scrollbar       { width: 4px; height: 4px; }
-::-webkit-scrollbar-track { background: var(--navy2); }
-::-webkit-scrollbar-thumb { background: var(--teal-dk); border-radius: 3px; }
+/* Scrollbar */
+::-webkit-scrollbar       { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--gray-100); }
+::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--teal); }
 
-@keyframes fadeUp   { from { opacity:0; transform:translateY(9px) } to { opacity:1; transform:none } }
-@keyframes scaleIn  { from { opacity:0; transform:scale(.95) }      to { opacity:1; transform:scale(1) } }
-@keyframes slideInR { from { opacity:0; transform:translateX(16px) } to { opacity:1; transform:none } }
-@keyframes spin     { to   { transform: rotate(360deg) } }
+/* Animaciones */
+@keyframes fadeUp    { from { opacity:0; transform:translateY(8px) } to { opacity:1; transform:none } }
+@keyframes scaleIn   { from { opacity:0; transform:scale(.97) }     to { opacity:1; transform:scale(1) } }
+@keyframes slideInR  { from { opacity:0; transform:translateX(14px) } to { opacity:1; transform:none } }
+@keyframes slideInB  { from { opacity:0; transform:translateY(12px) } to { opacity:1; transform:none } }
+@keyframes spin      { to   { transform:rotate(360deg) } }
+@keyframes pulse     { 0%,100% { opacity:1 } 50% { opacity:.5 } }
 
-.anim-fade-up  { animation: fadeUp .3s ease both; }
-.anim-scale-in { animation: scaleIn .25s ease both; }
+.anim-fade-up   { animation: fadeUp .3s ease both; }
+.anim-scale-in  { animation: scaleIn .25s ease both; }
