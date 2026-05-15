@@ -30,8 +30,26 @@ export class ApiError extends Error {
   }
 }
 
+/**
+ * Determina la URL base automáticamente según el entorno
+ * - En desarrollo (localhost:5173): usa localhost:3001
+ * - En producción: usa el mismo servidor/dominio actual
+ */
+const getBaseURL = () => {
+  const envUrl = import.meta.env.VITE_API_BASE_URL;
+  if (envUrl) return envUrl;
+  
+  // En desarrollo (Vite en puerto 5173)
+  if (window.location.hostname === 'localhost' && window.location.port === '5173') {
+    return 'http://localhost:3001/api/v1';
+  }
+  
+  // En producción: usa el mismo servidor/dominio actual
+  return `${window.location.origin}/api/v1`;
+};
+
 const httpClient = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:3001/api/v1',
+  baseURL: getBaseURL(),
   timeout: 15_000,
   headers: { 'Content-Type': 'application/json' },
 });
