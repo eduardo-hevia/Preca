@@ -54,7 +54,10 @@ export const AuthProvider = ({ children, msalInstance }) => {
         };
         
         const apiBase = getBaseURL();
-        const res  = await fetch(`${apiBase}/auth/proto-login`, { method: 'POST' });
+        const res  = await fetch(`${apiBase}/auth/proto-login`, { 
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' }
+        });
         if (res.ok) {
           const { token } = await res.json();
           setAuthToken(token);
