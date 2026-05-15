@@ -3,8 +3,9 @@
  * @description Llamadas HTTP al backend para HU-61314.
  */
 import httpClient from '../httpClient.js';
+import { AUTH_MODE } from '../../auth/authConfig.js';
 
-const USE_MOCK = import.meta.env.VITE_USE_MOCK === 'true';
+const USE_MOCK = import.meta.env.VITE_USE_MOCK === 'true' || AUTH_MODE === 'proto';
 // Importación lazy del mock para evitar cargar datos en producción
 let _mock = null;
 const getMock = async () => {

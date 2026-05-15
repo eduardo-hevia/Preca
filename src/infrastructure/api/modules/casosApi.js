@@ -4,8 +4,9 @@
  */
 import httpClient from '../httpClient.js';
 import CasosServiceMock from '../../mock/casosMockService.js';
+import { AUTH_MODE } from '../../auth/authConfig.js';
 
-const USE_MOCK = import.meta.env.VITE_USE_MOCK === 'true';
+const USE_MOCK = import.meta.env.VITE_USE_MOCK === 'true' || AUTH_MODE === 'proto';
 
 const CasosApi = {
   /** GET /casos con filtros y paginación */
