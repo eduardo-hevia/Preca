@@ -41,7 +41,19 @@ export const AuthProvider = ({ children, msalInstance }) => {
     if (AUTH_MODE !== 'proto') return;
     const fetchProtoToken = async () => {
       try {
-        const apiBase = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:3001/api/v1';
+        // Determina la URL base automáticamente (igual que en httpClient.js)
+        const getBaseURL = () => {
+          const envUrl = import.meta.env.VITE_API_BASE_URL;
+          if (envUrl) return envUrl;
+          // En desarrollo (Vite en puerto 5173)
+          if (window.location.hostname === 'localhost' && window.location.port === '5173') {
+            return 'http://localhost:3001/api/v1';
+          }
+          // En producción: usa el mismo servidor/dominio actual
+          return `${window.location.origin}/api/v1`;
+        };
+        
+        const apiBase = getBaseURL();
         const res  = await fetch(`${apiBase}/auth/proto-login`, { method: 'POST' });
         if (res.ok) {
           const { token } = await res.json();
